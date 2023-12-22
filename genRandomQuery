@@ -1,0 +1,24 @@
+import random
+import string
+import pyperclip
+
+
+def generate_random_string(length=3):
+    while True:
+        # Characters, which may include English letters and numbers
+        characters = string.ascii_letters + string.digits
+
+        # Random string generation
+        random_string = ''.join(random.choice(characters) for _ in range(length))
+        pyperclip.copy(random_string)
+        print(random_string)
+
+        inp = input('Enter number of characters:')
+        try:
+            isinstance(int(inp), int)
+            length = int(inp)
+        except ValueError:
+            pass
+          
+          
+generate_random_string()
